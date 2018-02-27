@@ -19,6 +19,11 @@ Build on your machine
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o main .
 ```
 
+Alternatively you can use the `-s` and `-w` linker flags to strip the debugging information and reduce container size
+```sh
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -a -installsuffix cgo -o app .
+```
+
 #### 2. Build Docker image
 ```sh
 docker build -t go-docker-minimal .
@@ -50,7 +55,7 @@ docker run -t go-docker-minimal-multistage
 The docker image created is less than 2 Mb. Running `docker images` you can see this:
 ```
 REPOSITORY                        TAG                  IMAGE ID            CREATED             SIZE
-go-docker-minimal                 latest               a5ad46a94d25        5 minutes ago       1.88MB
+go-docker-minimal                 latest               a5ad46a94d25        5 minutes ago       1.23MB
 ```
 
 # Credits
