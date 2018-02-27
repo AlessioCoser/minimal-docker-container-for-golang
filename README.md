@@ -6,7 +6,6 @@ A normal compiled app is dynamically linked to the libraries it needs to run (i.
 Unfortunately, scratch is empty, so there are no libraries and no loadpath for it to look in. What we have to do is modify our build script to statically compile our app with all libraries built in.
 
 ## Build and Run an Hello World app
-
 ### 0. Prerequisites
 - [Docker](https://docs.docker.com/install)
 - [golang](https://golang.org/doc/install)
@@ -30,6 +29,20 @@ go-docker-minimal                 latest               a5ad46a94d25        5 min
 ### 3. Run Docker container
 ```sh
 docker run -t go-docker-minimal
+```
+
+## Build and Execute with a multi-stage build
+Using a multi-stage build you can compile go executable and then create the minimal docker-image in the same build instruction.
+
+### Build
+(With `-f` I can pass a non default dockerfile filename)
+```
+docker build -t go-docker-minimal-multistage -f Dockerfile.multistage .
+```
+
+### Run
+```sh
+docker run -t go-docker-minimal-multistage
 ```
 
 ## Credits
