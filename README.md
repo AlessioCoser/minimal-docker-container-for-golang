@@ -15,6 +15,12 @@ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o main .
 docker build -t go-docker-minimal .
 ```
 
+This docker image is less than 2 Mb!
+```
+REPOSITORY                        TAG                  IMAGE ID            CREATED             SIZE
+go-docker-minimal                 latest               a5ad46a94d25        5 minutes ago       1.88MB
+```
+
 ## 3. Run Docker container
 ```
 docker run -t go-docker-minimal
