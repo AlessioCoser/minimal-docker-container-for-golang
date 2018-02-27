@@ -1,4 +1,9 @@
 # Minimal Docker Container for GoLang
+The image starts from `scratch`: a special docker image that’s empty. It’s truly 0B!
+
+A normal compiled app is dynamically linked to the libraries it needs to run (i.e., all the C libraries it binds to).
+
+Unfortunately, scratch is empty, so there are no libraries and no loadpath for it to look in. What we have to do is modify our build script to statically compile our app with all libraries built in.
 
 ## 1. Build go executable for linux
 ```
@@ -14,3 +19,6 @@ docker build -t go-docker-minimal .
 ```
 docker run -t go-docker-minimal
 ```
+
+## Credits
+To have more information about it [read this article from codeship.com](https://blog.codeship.com/building-minimal-docker-containers-for-go-applications/)
