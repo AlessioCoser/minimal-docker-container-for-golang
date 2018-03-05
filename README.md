@@ -21,7 +21,7 @@ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o main .
 
 Alternatively you can use the `-s` and `-w` linker flags to strip the debugging information and reduce container size
 ```sh
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -a -installsuffix cgo -o app .
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -a -installsuffix cgo -o main .
 ```
 
 #### 2. Build Docker image
