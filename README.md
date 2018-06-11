@@ -51,6 +51,12 @@ docker build -t go-docker-minimal-api-multistage -f Dockerfile.multistage .
 docker run -p 8080:8080 -t go-docker-minimal-api-multistage
 ```
 
+#### 3. Try
+```sh
+curl localhost:8080/helloworld
+# => {"greeting":"Hello World"}
+```
+
 ## How much minimal?
 The docker image created is less than 2 Mb. Running `docker images` you can see this:
 ```
