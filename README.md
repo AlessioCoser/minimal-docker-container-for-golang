@@ -26,12 +26,12 @@ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -a -installsuffi
 
 #### 2. Build Docker image
 ```sh
-docker build -t go-docker-minimal .
+docker build -t go-docker-minimal-api .
 ```
 
 #### 3. Run Docker container
 ```sh
-docker run -t go-docker-minimal
+docker run -p 8080:8080 -t go-docker-minimal-api
 ```
 
 ## Second Way
@@ -43,19 +43,19 @@ Using a multi-stage build you can compile go executable and then create the mini
 #### 1. Build
 (With `-f` I can pass a non default dockerfile filename)
 ```
-docker build -t go-docker-minimal-multistage -f Dockerfile.multistage .
+docker build -t go-docker-minimal-api-multistage -f Dockerfile.multistage .
 ```
 
 #### 2. Run
 ```sh
-docker run -t go-docker-minimal-multistage
+docker run -p 8080:8080 -t go-docker-minimal-api-multistage
 ```
 
 ## How much minimal?
 The docker image created is less than 2 Mb. Running `docker images` you can see this:
 ```
 REPOSITORY                        TAG                  IMAGE ID            CREATED             SIZE
-go-docker-minimal                 latest               a5ad46a94d25        5 minutes ago       1.23MB
+go-docker-minimal-api             latest               a5ad46a94d25        5 minutes ago       4.16MB
 ```
 
 # Credits
