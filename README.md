@@ -58,7 +58,7 @@ curl localhost:8080/helloworld
 ```
 
 ## How much minimal?
-The docker image created is less than 2 Mb. Running `docker images` you can see this:
+The docker image created is less than 5 Mb. Running `docker images` you can see this:
 ```
 REPOSITORY                        TAG                  IMAGE ID            CREATED             SIZE
 go-docker-minimal-api             latest               a5ad46a94d25        5 minutes ago       4.16MB
